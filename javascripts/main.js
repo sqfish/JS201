@@ -15,13 +15,12 @@ requirejs.config({
   }
 });
 
-requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "add-relative"], 
-  function ($, _, _firebase, Handlebars, bootstrap, addRelative) {
+requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "add-relative", "remove-relative"], 
+  function ($, _, _firebase, Handlebars, bootstrap, addRelative, removeRelative) {
     var myFirebaseRef = new Firebase("https://this-crazy-family.firebaseio.com/");
     myFirebaseRef.child("family").on("value", function(snapshot) {
       var family = snapshot.val();
       displayFamilyMembers(family);
-      console.log(family);
   });
 
   function displayFamilyMembers(input) {
@@ -30,23 +29,13 @@ requirejs(["jquery", "lodash", "firebase", "hbs", "bootstrap", "add-relative"],
     });
   }
 
-  $("#addMember").click(function(){
-    var inputName = $("#inputName").val();
-    var inputSpecies = $("#inputSpecies").val();
-    var inputAge = $("#inputAge").val();
-    var inputGender = $("#inputGender").val();
-    var inputSkills = $("#inputSkills").val().split(",");
-    console.log(inputName, inputAge);
-    console.log(inputSpecies, inputGender);
-    console.log(inputSkills);
-    var newMember = {
-      "name": inputName,
-      "age": inputAge,
-      "gender": inputGender,
-      "species": inputSpecies,
-      "skills": inputSkills
-    };
-    console.log(newMember);
-    addRelative.addRelative(newMember);
-  });
+  $(document).ready(function(){
+    $("#addMember").click(function(){
+      addRelative.addRelative(addRelative.collectFormData());
+    });
+
+    $(document).on("click", "#deleteMember", function(){
+      removeRelative.removeRelative(this);
+    });
+  });   //CLOSE//: document.ready()
 });   //CLOSE//: Requirejs
