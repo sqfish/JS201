@@ -1,0 +1,20 @@
+{{#each this}}
+  <div class="member col-md-4">
+    <h3 class="text-center">
+      {{name}}<br>
+      <small>
+        {{age}} years young
+      </small>
+    </h3>
+    <dl class="dl-horizontal text-left">
+      <dt>Species</dt>
+      <dd>{{species}}</dd>
+      <dt>Gender</dt>
+      <dd>{{gender}}</dd>
+      <dt>Skills</dt>
+      {{#each skills}}
+        <dd>{{this}}</dd>
+      {{/each}}
+    </dl>
+  </div>
+{{/each}}

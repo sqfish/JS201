@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nashville Software School</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css" type="text/css">
+</head>
+
+<body>
+  <header>
+    <div class="page-header">
+      <h1>Family Database <small>NSS JS201 Quiz</small></h1>
+    </div>
+  </header>
+  <div class="container-fluid">
+
+    <div class="row">
+
+      <div class="col-md-8">
+        <div id="family-container" class="row">
+      
+        </div>
+      </div>
+      <div id="form-container" class="col-md-2 col-md-offset-1">
+        <form id="addMemberForm">
+          <div class="form-group">
+            <label for="inputName">Name:</label>
+            <input type="text" class="form-control" id="inputName" placeholder="">
+          </div>
+          <div class="form-group">
+            <label for="inputSpecies">Species:</label>
+            <input type="text" class="form-control" id="inputSpecies" placeholder="">
+          </div>
+          <div class="form-group">
+            <label for="inputAge">Age:</label>
+            <input type="number" class="form-control" id="inputAge" placeholder="">
+          </div>
+          <div class="form-group">
+            <label for="inputGender">Gender:</label>
+            <select class="form-control" id="inputGender">
+              <option disabled selected>Options</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Hermaphrodite</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="inputSkills">Skills:</label>
+            <textarea class="form-control" id="inputSkills" rows="2" placeholder="Comma-separated list of skills"></textarea>
+          </div>
+
+          <button type="button" id="addMember" class="btn btn-default">Add</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+
+  <script data-main="javascripts/main" src="bower_components/requirejs/require.js"></script>
+</body>
+
+</html>
